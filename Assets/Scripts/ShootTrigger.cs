@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootOnDeath : MonoBehaviour, IDeathEffect
+public class ShootTrigger : MonoBehaviour, ITrigger
 {
     [SerializeField] private Shooter shooter;
-    [SerializeField] private DeathCause allowedDeathCause;
-    public DeathCause AllowedDeathCause { get => allowedDeathCause; set => allowedDeathCause = value; }
 
     void Start()
     {
