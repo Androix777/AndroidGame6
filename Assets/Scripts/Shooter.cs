@@ -45,7 +45,7 @@ public class Shooter : MonoBehaviour
                 if (setMoveForward)
                 {
                     moveVector = (lastProjectile.transform.TransformPoint(Vector2.up) - lastProjectile.transform.position).normalized;
-                    lastProjectile.GetComponent<Move>().SetMove(moveVector);
+                    if (lastProjectile.GetComponent<Move>()) lastProjectile.GetComponent<Move>().SetMove(moveVector);
                 }
                 lastProjectile.transform.parent = gameObject.transform.parent;
             }

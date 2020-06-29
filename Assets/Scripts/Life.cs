@@ -30,6 +30,10 @@ public class Life : MonoBehaviour
     public void DealDamage(int damage)
     {
         HP -= damage;
+        if (triggerActivator)
+        {
+            triggerActivator.ActivateTrigger(EventType.GetDamage);
+        }
         if (HP <= 0 && !dead)
         {
             if (triggerActivator)
