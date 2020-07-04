@@ -9,14 +9,18 @@ public class Shooter : MonoBehaviour
     public int numOfGuns = 1;
     public float distanceBetweenGuns;
     public float angleBetweenGuns;
+    public float angleBetweenGunsRandom = 0;
     public bool setMoveForward = true;
     public float forwardOffset = 0;
     public float angleOffset = 0;
+    public float angleOffsetRandom = 0;
     public bool autoShooting = false;
     public GameObject projectile;
     private GameObject lastProjectile;
     private Vector2 moveVector;
     private float lastShootTime = 0;
+    public float chanceToShootAll = 1;
+    public float chanceToShootEvery = 1;
 
     void Start()
     {
@@ -35,20 +39,27 @@ public class Shooter : MonoBehaviour
     {
         if (Time.time - lastShootTime > fireRate || must)
         {
-            for (int i = 0; i < numOfGuns; i++)
+            if(Random.value < chanceToShootAll)
             {
-                lastShootTime = Time.time;
-                lastProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-                lastProjectile.transform.Rotate(new Vector3(0, 0, angle + ((angleBetweenGuns * (numOfGuns-1)) / 2) - angleBetweenGuns * i + angleOffset));
-                lastProjectile.transform.Translate(-(distanceBetweenGuns * (numOfGuns - 1)) / 2 + i * distanceBetweenGuns, forwardOffset, 0);
-                lastProjectile.SetActive(true);
-                if (setMoveForward)
+                float angleOffsetRandomCurrent = Random.Range(-angleOffsetRandom, angleOffsetRandom);
+                for (int i = 0; i < numOfGuns; i++)
                 {
-                    moveVector = (lastProjectile.transform.TransformPoint(Vector2.up) - lastProjectile.transform.position).normalized;
-                    if (lastProjectile.GetComponent<Move>()) lastProjectile.GetComponent<Move>().SetMove(moveVector);
+                    if(Random.value < chanceToShootEvery)
+                    {
+                        lastProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+                        lastProjectile.transform.Rotate(new Vector3(0, 0, angle + ((angleBetweenGuns * (numOfGuns-1)) / 2) - angleBetweenGuns * i + angleOffset + Random.Range(-angleBetweenGunsRandom, angleBetweenGunsRandom) + angleOffsetRandomCurrent));
+                        lastProjectile.transform.Translate(-(distanceBetweenGuns * (numOfGuns - 1)) / 2 + i * distanceBetweenGuns, forwardOffset, 0);
+                        lastProjectile.SetActive(true);
+                        if (setMoveForward)
+                        {
+                            moveVector = (lastProjectile.transform.TransformPoint(Vector2.up) - lastProjectile.transform.position).normalized;
+                            if (lastProjectile.GetComponent<Move>()) lastProjectile.GetComponent<Move>().SetMove(moveVector);
+                        }
+                        lastProjectile.transform.parent = gameObject.transform.parent;
+                    }
                 }
-                lastProjectile.transform.parent = gameObject.transform.parent;
             }
+            lastShootTime = Time.time;
         }
     }
 
