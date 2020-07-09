@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &772752803528005401
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   angleOffset: 0
   angleOffsetRandom: 0
   autoShooting: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 6102083150663612708, guid: 393ff90f72be1ba40ae8e6291ad2f618, type: 3}
   chanceToShootAll: 1
   chanceToShootEvery: 1
 --- !u!114 &772752803528005395

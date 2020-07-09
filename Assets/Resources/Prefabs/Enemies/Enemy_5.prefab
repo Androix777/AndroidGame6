@@ -115,7 +115,7 @@ MonoBehaviour:
   angleOffset: 0
   angleOffsetRandom: 0
   autoShooting: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 6102083150663612708, guid: 393ff90f72be1ba40ae8e6291ad2f618, type: 3}
   chanceToShootAll: 1
   chanceToShootEvery: 1
 --- !u!114 &3712426260113512332
@@ -411,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 2621944263033542380, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
       propertyPath: m_Name
       value: Enemy_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621944263033542380, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
