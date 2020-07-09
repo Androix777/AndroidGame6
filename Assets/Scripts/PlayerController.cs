@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        Debug.Log(movement.ToString());
+        //Debug.Log(movement.ToString());
         moveComponent.SetMove(movement);
 
         if (!InputMouse)
