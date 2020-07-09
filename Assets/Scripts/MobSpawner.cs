@@ -20,6 +20,6 @@ public class MobSpawner : MonoBehaviour
     void Spawn()
     {
         shooter.projectile = mobs[Random.Range(0,mobs.Length)];
-        shooter.Shoot(Random.Range(0.0f, 360.0f), true);
+        shooter.Shoot(0, true);
     }
 }
