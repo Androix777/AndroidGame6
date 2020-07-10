@@ -20,17 +20,16 @@ public class RandomMoveAI : MonoBehaviour
     void Update()
     {
 
-        if (Vector2.Distance(randomPosition,transform.position) < 0.5f)
+        if (Vector2.Distance(randomPosition,transform.position) < 1f)
         {
             GenerationVectorToMove();     
         }
+        vectorToMove = (randomPosition - transform.position);
         move.SetMove(vectorToMove.normalized);
     }
 
     void GenerationVectorToMove()
     {
         randomPosition = (Vector3.up * Random.Range(-1f,1f) + (Vector3.right * Random.Range(-1f,1f))).normalized * Random.Range(0,distToCenter);
-        vectorToMove = (randomPosition - transform.position);
-
     }
 }

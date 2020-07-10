@@ -31,7 +31,7 @@ public class Life : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        if (Immortal)
+        if (!Immortal)
         {
             HP -= damage;
         }      

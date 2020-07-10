@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 60
   HP: 60
+  Immortal: 0
   status: 1
 --- !u!50 &2403119287349986313
 Rigidbody2D:
@@ -196,16 +197,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_GradientMax:
       serializedVersion: 2
-      key0: {r: 1, g: 0.18435755, b: 0, a: 1}
-      key1: {r: 1, g: 0.18435755, b: 0, a: 1}
+      key0: {r: 0, g: 0.035513878, b: 1, a: 0.78431374}
+      key1: {r: 0, g: 0.73603296, b: 1, a: 0.5882353}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 771
-      ctime1: 64571
+      ctime0: 193
+      ctime1: 65535
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -213,7 +214,7 @@ MonoBehaviour:
       ctime6: 0
       ctime7: 0
       atime0: 386
-      atime1: 64379
+      atime1: 55319
       atime2: 64379
       atime3: 0
       atime4: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
   gradientBack:
@@ -380,16 +381,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_GradientMax:
       serializedVersion: 2
-      key0: {r: 1, g: 0.18435755, b: 0, a: 1}
-      key1: {r: 1, g: 0.18435755, b: 0, a: 1}
+      key0: {r: 0, g: 0.035513878, b: 1, a: 0.78431374}
+      key1: {r: 0, g: 0.73603296, b: 1, a: 0.5882353}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 771
-      ctime1: 64571
+      ctime0: 193
+      ctime1: 65535
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -397,7 +398,7 @@ MonoBehaviour:
       ctime6: 0
       ctime7: 0
       atime0: 386
-      atime1: 64379
+      atime1: 55319
       atime2: 64379
       atime3: 0
       atime4: 0
@@ -406,7 +407,7 @@ MonoBehaviour:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
   gradientBack:
@@ -635,7 +636,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7910559518356215908, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7910559518356215908, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
@@ -676,6 +677,10 @@ PrefabInstance:
     - target: {fileID: 7910559518356215908, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
       value: 60138
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910559518356215908, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 7910559518356215909, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1216,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459933689581474664, guid: df0ca462f8e73dd4cbc95af900a8c650, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.9524387
+      value: 0.35316703
       objectReference: {fileID: 0}
     - target: {fileID: 5459933689581474664, guid: df0ca462f8e73dd4cbc95af900a8c650, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
@@ -1376,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459933689581474664, guid: df0ca462f8e73dd4cbc95af900a8c650, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5459933689581474664, guid: df0ca462f8e73dd4cbc95af900a8c650, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar

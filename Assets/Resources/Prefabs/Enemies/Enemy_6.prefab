@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 20
   HP: 20
+  Immortal: 0
   status: 1
 --- !u!50 &2621944263033542378
 Rigidbody2D:
