@@ -6,6 +6,8 @@ public class Life : MonoBehaviour
 {
     public int maxHP;
     public int HP;
+
+    public bool Immortal;
     public Status status;
     private bool dead = false;
     private TriggerActivator triggerActivator; 
@@ -29,7 +31,10 @@ public class Life : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        HP -= damage;
+        if (Immortal)
+        {
+            HP -= damage;
+        }      
         if (triggerActivator)
         {
             triggerActivator.ActivateTrigger(EventType.GetDamage);
