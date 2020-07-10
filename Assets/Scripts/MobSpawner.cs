@@ -7,6 +7,7 @@ public class MobSpawner : MonoBehaviour
     public Shooter shooter;
     public GameObject[] mobs;
     public float spawnRate;
+    public int numOfSpawns;
     void Start()
     {
         InvokeRepeating("Spawn", spawnRate, spawnRate);
@@ -19,7 +20,10 @@ public class MobSpawner : MonoBehaviour
 
     void Spawn()
     {
-        shooter.projectile = mobs[Random.Range(0,mobs.Length)];
-        shooter.Shoot(0, true);
+        for(int i = 0; i<numOfSpawns; i++)
+        {
+            shooter.projectile = mobs[Random.Range(0,mobs.Length)];
+            shooter.Shoot(0, true);
+        }
     }
 }
