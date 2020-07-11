@@ -9,6 +9,8 @@ public class DamageDealer : MonoBehaviour
     public bool destroyAfterDealDamage;   
     private TriggerActivator triggerActivator; 
 
+    [SerializeField] private float coolDown = 0.5f; 
+    private float time;
     void Start()
     {
         try
@@ -23,17 +25,17 @@ public class DamageDealer : MonoBehaviour
 
     void Update()
     {
-        
+        time = time-Time.deltaTime > 0? time-Time.deltaTime : 0;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        DealDamage(col.gameObject);
+    void OnTriggerStay2D(Collider2D col)
+    { 
+        if (time == 0) DealDamage(col.gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
-        DealDamage(col.gameObject);
+        if (time == 0) DealDamage(col.gameObject);
     }
 
     private void DealDamage(GameObject target)
@@ -41,6 +43,7 @@ public class DamageDealer : MonoBehaviour
         if (target.GetComponent<Life>() != null && target.GetComponent<Life>().status != status)
         {
             target.GetComponent<Life>().DealDamage(damage);
+            time += coolDown;
             if(destroyAfterDealDamage)
             {
                 if (triggerActivator)
