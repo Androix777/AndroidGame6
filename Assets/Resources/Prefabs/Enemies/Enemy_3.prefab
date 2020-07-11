@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
-  HP: 60
+  maxHP: 40
+  HP: 40
   Immortal: 0
   status: 1
 --- !u!50 &2403119287349986313
@@ -304,8 +304,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12528552, y: -0.028912175}
-  m_Size: {x: 1.2505764, y: 1.2505764}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.2, y: 2.2}
   m_Direction: 1
 --- !u!114 &2403119287349986353
 MonoBehaviour:
@@ -322,6 +322,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 0
+  coolDown: 0.5
 --- !u!114 &2403119287349986352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,9 +612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 14
   status: 1
   destroyAfterDealDamage: 1
+  coolDown: 0.5
 --- !u!114 &3633851887702459029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,11 +686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7910559518356215909, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28999996
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7910559518356215909, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17999983
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7910559518356215909, guid: 8b63e00ec00be5748a68f0bddc50f100, type: 3}
       propertyPath: m_LocalPosition.z

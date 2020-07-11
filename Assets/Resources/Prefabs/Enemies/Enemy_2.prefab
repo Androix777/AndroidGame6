@@ -101,6 +101,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 1
+  coolDown: 0.5
 --- !u!114 &1365978652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
-  HP: 60
+  maxHP: 30
+  HP: 30
   Immortal: 0
   status: 1
 --- !u!50 &1384735165353994368
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 5
 --- !u!114 &1384735165353994381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,8 +433,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12528552, y: -0.028912175}
-  m_Size: {x: 1.2505764, y: 1.2505764}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.5, y: 2.5}
   m_Direction: 1
 --- !u!114 &1384735165353994424
 MonoBehaviour:
@@ -450,6 +451,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 0
+  coolDown: 0.5
 --- !u!114 &1384735165353994425
 MonoBehaviour:
   m_ObjectHideFlags: 0

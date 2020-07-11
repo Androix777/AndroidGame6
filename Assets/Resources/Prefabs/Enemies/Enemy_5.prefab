@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 3712426260113512332}
   - component: {fileID: 3712426260113512331}
   - component: {fileID: 3712426260113512333}
-  - component: {fileID: 3712426260113512320}
   - component: {fileID: 3712426260113512383}
   - component: {fileID: 6064868873115264736}
   - component: {fileID: 2505532707353405080}
+  - component: {fileID: 1346190012}
   m_Layer: 0
   m_Name: Enemy_5
   m_TagString: Untagged
@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
-  HP: 60
+  maxHP: 80
+  HP: 80
   Immortal: 0
   status: 1
 --- !u!50 &3712426260113512327
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 4
 --- !u!114 &3712426260113512330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,22 +289,6 @@ MonoBehaviour:
   backColor: 1
   modeOneGetColor: 1
   time: 0.08
---- !u!70 &3712426260113512320
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712426260113512321}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.2505764, y: 1.2505764}
-  m_Direction: 1
 --- !u!114 &3712426260113512383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +304,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 0
+  coolDown: 0.5
 --- !u!114 &6064868873115264736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,13 +317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68917b6ef19f442ae658969e4ce9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireRate: 25
   numOfGuns: 3
   distanceBetweenGuns: 0
   angleBetweenGuns: 120
   angleBetweenGunsRandom: 0
   setMoveForward: 1
-  forwardOffset: 0
+  forwardOffset: 1
   angleOffset: 0
   angleOffsetRandom: 0
   autoShooting: 1
@@ -358,6 +343,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distToCenter: 15
+--- !u!58 &1346190012
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712426260113512321}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.58
 --- !u!1001 &118251537072698080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -365,6 +366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3712426260113512326}
     m_Modifications:
+    - target: {fileID: 2621944263033542375, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 5757227625948278432, guid: 246cae07951b83044876a0fce7bcab93, type: 3}
     - target: {fileID: 2621944263033542379, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

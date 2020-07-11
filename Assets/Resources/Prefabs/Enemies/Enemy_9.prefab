@@ -616,9 +616,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16676664, y: 0}
+  m_Offset: {x: 0.19, y: 0}
   serializedVersion: 2
-  m_Radius: 1.0578046
+  m_Radius: 1.3
 --- !u!114 &3835787805294341787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,6 +886,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 1
+  coolDown: 0.5
 --- !u!114 &4576266606373424627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5855f0e7f01c4498bf0c3efd304ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 6
+  time: 10
 --- !u!114 &6697094180808905551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 4576266606373424623}
-  time: 3
+  time: 5
 --- !u!114 &864551980
 MonoBehaviour:
   m_ObjectHideFlags: 0

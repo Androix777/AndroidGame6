@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveAIBoomerang : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rigidbody;
+    [SerializeField] new  Rigidbody2D rigidbody;
     [SerializeField] float time;
     private bool active = true;
     void Start()

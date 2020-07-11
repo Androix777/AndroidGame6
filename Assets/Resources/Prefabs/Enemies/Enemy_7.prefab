@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 7192718882287997474}
   - component: {fileID: 7192718882287997477}
   - component: {fileID: 7192718882287997475}
-  - component: {fileID: 7192718882287997486}
   - component: {fileID: 7192718882287997457}
   - component: {fileID: 7192718882287997459}
   - component: {fileID: 3785092916652922547}
+  - component: {fileID: 960127898}
   m_Layer: 0
   m_Name: Enemy_7
   m_TagString: Untagged
@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
-  HP: 60
+  maxHP: 35
+  HP: 35
   Immortal: 0
   status: 1
 --- !u!50 &7192718882287997481
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 14
 --- !u!114 &7192718882287997476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,16 +194,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_GradientMax:
       serializedVersion: 2
-      key0: {r: 1, g: 0.18435755, b: 0, a: 1}
-      key1: {r: 1, g: 0.18435755, b: 0, a: 1}
+      key0: {r: 0, g: 0.035513878, b: 1, a: 0.78431374}
+      key1: {r: 0, g: 0.73603296, b: 1, a: 0.5882353}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 771
-      ctime1: 64571
+      ctime0: 193
+      ctime1: 65535
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
       ctime6: 0
       ctime7: 0
       atime0: 386
-      atime1: 64379
+      atime1: 55319
       atime2: 64379
       atime3: 0
       atime4: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
   gradientBack:
@@ -288,22 +288,6 @@ MonoBehaviour:
   backColor: 1
   modeOneGetColor: 1
   time: 0.08
---- !u!70 &7192718882287997486
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7192718882287997487}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.07186368, y: 0.054556444}
-  m_Size: {x: 2.0940444, y: 1.9569064}
-  m_Direction: 1
 --- !u!114 &7192718882287997457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +303,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 0
+  coolDown: 0.5
 --- !u!114 &7192718882287997459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +458,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleToHero: -30
   rangeToStop: 0
+--- !u!58 &960127898
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192718882287997487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.25
 --- !u!1001 &2370232964997139109
 PrefabInstance:
   m_ObjectHideFlags: 0

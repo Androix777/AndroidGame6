@@ -192,7 +192,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.15
+  m_Radius: 1.4
 --- !u!114 &7266991689426475905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
-  HP: 30
+  maxHP: 80
+  HP: 80
   Immortal: 0
   status: 1
 --- !u!114 &7266991689426475910
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5
 --- !u!114 &7266991689426475919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +591,7 @@ MonoBehaviour:
   damage: 5
   status: 1
   destroyAfterDealDamage: 1
+  coolDown: 0.5
 --- !u!114 &7953591020472367337
 MonoBehaviour:
   m_ObjectHideFlags: 0
