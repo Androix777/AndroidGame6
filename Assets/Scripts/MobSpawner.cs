@@ -15,7 +15,7 @@ public class MobSpawner : MonoBehaviour
     void Start()
     {
         wave = 0;
-        InvokeRepeating("Spawn", spawnRate, spawnRate);       
+        InvokeRepeating("Spawn", 0, spawnRate);       
     }
 
     void Update()
