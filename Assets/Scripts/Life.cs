@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Life : MonoBehaviour
+public class Life : MonoBehaviour, IDamageable
 {
     public int maxHP;
     public int HP;
 
     public bool Immortal;
-    public Status status;
+    [SerializeField] private Status _status = Status.Enemy;
+    public Status Status
+    {
+        get
+        { 
+            return _status; 
+        }
+        set
+        { 
+            _status = value; 
+        }
+    }
     private bool dead = false;
     private TriggerActivator triggerActivator; 
 
@@ -29,7 +40,7 @@ public class Life : MonoBehaviour
         
     }
 
-    public void DealDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (!Immortal)
         {

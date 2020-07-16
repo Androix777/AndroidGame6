@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 35
-  status: 1
+  _status: 1
   destroyAfterDealDamage: 0
   coolDown: 0.5
 --- !u!114 &7143637821774540273
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7609414675820465819
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   maxHP: 90
   HP: 90
   Immortal: 0
-  status: 1
+  _status: 1
 --- !u!114 &7609414675820465822
 MonoBehaviour:
   m_ObjectHideFlags: 0

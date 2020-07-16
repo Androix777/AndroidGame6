@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3712426260113512326
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   maxHP: 80
   HP: 80
   Immortal: 0
-  status: 1
+  _status: 1
 --- !u!50 &3712426260113512327
 Rigidbody2D:
   serializedVersion: 4
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  status: 1
+  _status: 1
   destroyAfterDealDamage: 0
   coolDown: 0.5
 --- !u!114 &6064868873115264736
@@ -317,13 +317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68917b6ef19f442ae658969e4ce9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 25
-  numOfGuns: 3
+  fireRate: 10
+  numOfGuns: 4
   distanceBetweenGuns: 0
-  angleBetweenGuns: 120
+  angleBetweenGuns: 90
   angleBetweenGunsRandom: 0
   setMoveForward: 1
-  forwardOffset: 1
+  forwardOffset: 2
   angleOffset: 0
   angleOffsetRandom: 0
   autoShooting: 1
@@ -366,10 +366,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3712426260113512326}
     m_Modifications:
+    - target: {fileID: 2621944263033542354, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: _status
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2621944263033542375, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 5757227625948278432, guid: 246cae07951b83044876a0fce7bcab93, type: 3}
+    - target: {fileID: 2621944263033542377, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621944263033542377, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: HP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621944263033542377, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: _status
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2621944263033542379, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

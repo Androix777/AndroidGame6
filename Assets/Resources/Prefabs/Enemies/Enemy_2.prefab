@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  status: 1
+  damage: 20
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!114 &1365978652
@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1384735165353994369
 Transform:
   m_ObjectHideFlags: 0
@@ -174,10 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
-  HP: 30
+  maxHP: 100
+  HP: 100
   Immortal: 0
-  status: 1
+  _status: 1
 --- !u!50 &1384735165353994368
 Rigidbody2D:
   serializedVersion: 4
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  status: 1
+  _status: 1
   destroyAfterDealDamage: 0
   coolDown: 0.5
 --- !u!114 &1384735165353994425
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68917b6ef19f442ae658969e4ce9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 0.8
   numOfGuns: 12
   distanceBetweenGuns: 0
   angleBetweenGuns: 30

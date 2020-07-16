@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7192718882287997480
 Transform:
   m_ObjectHideFlags: 0
@@ -55,10 +55,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 35
-  HP: 35
+  maxHP: 70
+  HP: 70
   Immortal: 0
-  status: 1
+  _status: 1
 --- !u!50 &7192718882287997481
 Rigidbody2D:
   serializedVersion: 4
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 10
 --- !u!114 &7192718882287997476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  status: 1
+  damage: 20
+  _status: 1
   destroyAfterDealDamage: 0
   coolDown: 0.5
 --- !u!114 &7192718882287997459

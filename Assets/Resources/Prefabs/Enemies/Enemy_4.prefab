@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  status: 1
+  damage: 10
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!1 &369192092
@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  status: 1
+  damage: 10
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!1 &928721499
@@ -284,8 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  status: 1
+  damage: 10
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!1 &1195013188
@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  status: 1
+  damage: 10
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!1 &1315122429
@@ -445,8 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  status: 1
+  damage: 10
+  _status: 1
   destroyAfterDealDamage: 1
   coolDown: 0.5
 --- !u!1 &1492523000
@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2505532705996549306
 Transform:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   maxHP: 80
   HP: 80
   Immortal: 0
-  status: 1
+  _status: 1
 --- !u!50 &2505532705996549307
 Rigidbody2D:
   serializedVersion: 4
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 6
 --- !u!114 &2505532705996549302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,8 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d733d08a1a2e54f8ab057267b300d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  status: 1
+  damage: 15
+  _status: 1
   destroyAfterDealDamage: 0
   coolDown: 0.5
 --- !u!114 &2505532705996549249
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68917b6ef19f442ae658969e4ce9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 2
   numOfGuns: 1
   distanceBetweenGuns: 0
   angleBetweenGuns: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26dfa37a9d059b46adf16b1755272e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeToStop: 8
+  rangeToStop: 12
 --- !u!114 &953013740931406095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 5002090301136969180}
-  range: 10
+  range: 20
 --- !u!58 &1915211036
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 17
+  speed: 23
 --- !u!50 &3599187486645791268
 Rigidbody2D:
   serializedVersion: 4

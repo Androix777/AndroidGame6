@@ -5,7 +5,18 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     public int damage;
-    public Status status;
+    [SerializeField] private Status _status = Status.Enemy;
+    public Status Status
+    {
+        get
+        { 
+            return _status; 
+        }
+        set
+        { 
+            _status = value; 
+        }
+    }
     public bool destroyAfterDealDamage;   
     private TriggerActivator triggerActivator; 
 
@@ -13,14 +24,7 @@ public class DamageDealer : MonoBehaviour
     private float time;
     void Start()
     {
-        try
-        {
-            triggerActivator = gameObject.GetComponent<TriggerActivator>();
-        }
-        catch
-        {
-            Debug.Log("No TriggerActivator");
-        }
+        triggerActivator = gameObject.GetComponent<TriggerActivator>();
     }
 
     void Update()
@@ -40,9 +44,10 @@ public class DamageDealer : MonoBehaviour
 
     private void DealDamage(GameObject target)
     {
-        if (target.GetComponent<Life>() != null && target.GetComponent<Life>().status != status)
+        IDamageable damageable = target.GetComponent<IDamageable>();
+        if (damageable != null && damageable.Status != Status)
         {
-            target.GetComponent<Life>().DealDamage(damage);
+            damageable.TakeDamage(damage);
             time += coolDown;
             if(destroyAfterDealDamage)
             {
