@@ -456,8 +456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8115269fec8572f4883cc751daf54427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleToHero: -30
+  angleToTarget: -30
   rangeToStop: 0
+  heroTarget: 1
+  target: {fileID: 0}
 --- !u!58 &960127898
 CircleCollider2D:
   m_ObjectHideFlags: 0

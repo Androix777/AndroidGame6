@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class SharkMoveAI : MonoBehaviour
 {
-    GameObject hero;
+
     private Move move;
-    private Transform heroTransform;
+    private Transform targetTransform;
     private Vector2 vectorMove;  
-    [Range(-90,90)] public float angleToHero;
-    public float rangeToStop;    void Start()
+    [Range(-90,90)] public float angleToTarget;
+    public float rangeToStop;    
+    
+    [SerializeField] bool heroTarget;
+
+    [SerializeField] GameObject target;
+    void Start()
     {
-        hero = GameObject.FindWithTag("Player");
-        heroTransform = hero.GetComponent<Transform>();
         move = gameObject.GetComponent<Move>();
+        if (heroTarget)
+        {
+            target = GameObject.FindWithTag("Player");
+            targetTransform = target.GetComponent<Transform>();
+        }
+        if (target != null)
+        {
+            targetTransform = target.GetComponent<Transform>();
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hero != null)
+        if (target != null)
         {
-            float angle = AngleTo(transform.position , heroTransform.position);
-            transform.rotation = Quaternion.Euler(0,0,angle + angleToHero);
+            float angle = AngleTo(transform.position , targetTransform.position);
+            transform.rotation = Quaternion.Euler(0,0,angle + angleToTarget);
             move.SetMove(transform.up);
         }
     }
