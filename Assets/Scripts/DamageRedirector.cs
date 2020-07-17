@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DamageRedirector : MonoBehaviour, IDamageable
 {
-    public IDamageable target;
+    public GameObject target;
+    private IDamageable damageTarget;
+
     [SerializeField] private Status _status = Status.Enemy;
     public Status Status
     {
@@ -19,7 +21,10 @@ public class DamageRedirector : MonoBehaviour, IDamageable
     }
     void Start()
     {
-        
+        if (target.GetComponent<IDamageable>() != null)
+        {
+            damageTarget = target.GetComponent<IDamageable>();
+        }
     }
 
     void Update()
@@ -29,6 +34,11 @@ public class DamageRedirector : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        target.TakeDamage(damage);
+        if (damageTarget != null)
+        {
+            damageTarget.TakeDamage(damage);
+        }
+        
     }
 }
+
