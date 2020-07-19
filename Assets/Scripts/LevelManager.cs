@@ -33,11 +33,19 @@ public class LevelManager : MonoBehaviour
     }
     private LevelEvent[] LevelEvents;
 
+    [System.Serializable]
+    public class Item
+    {
+        public string componentName;
+        public string itemName;
+        public string description;
+
+    }
+    public Item[] items;
 
     public Transform canvasWays;
     public MobSpawner mobSpawner;
     public GameObject hero;
-    public string[] items;
     private int levelNum = 1; //на будущее
 
     void Start()
@@ -126,10 +134,10 @@ public class LevelManager : MonoBehaviour
         int itemID = 0;
         foreach (int selectedItem in selectedItems)
         {
-            ways[itemID].nameText.text = items[selectedItem];
-            ways[itemID].descriptionText.text = ""; // пока так
+            ways[itemID].nameText.text = items[selectedItem].itemName;
+            ways[itemID].descriptionText.text = items[selectedItem].description;
             ways[itemID].button.onClick.RemoveAllListeners();
-            ways[itemID].button.onClick.AddListener(delegate{ActivateItem(items[selectedItem]);});
+            ways[itemID].button.onClick.AddListener(delegate{ActivateItem(items[selectedItem].componentName);});
             itemID++;
         }
     }
