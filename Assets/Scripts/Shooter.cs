@@ -35,7 +35,7 @@ public class Shooter : MonoBehaviour
 
     }
 
-    public void Shoot(float angle, bool must = false)
+    public void Shoot(float angle, bool must = false, Transform parent = null)
     {
         if (Time.time - lastShootTime > fireRate || must)
         {
@@ -55,7 +55,10 @@ public class Shooter : MonoBehaviour
                             moveVector = (lastProjectile.transform.TransformPoint(Vector2.up) - lastProjectile.transform.position).normalized;
                             if (lastProjectile.GetComponent<Move>()) lastProjectile.GetComponent<Move>().SetMove(moveVector);
                         }
-                        lastProjectile.transform.parent = gameObject.transform.parent;
+                        if(parent)
+                        {
+                            lastProjectile.transform.parent = parent;
+                        }
                     }
                 }
             }
