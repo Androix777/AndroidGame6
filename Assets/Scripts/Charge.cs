@@ -9,6 +9,7 @@ public class Charge : MonoBehaviour
     [SerializeField]private float speedMultiplecator = 1;
     [SerializeField] float time;
     [SerializeField] float timeReloaded;
+    [SerializeField] AudioSource audio;
     bool activCharge = false;
     void Start()
     {
@@ -20,7 +21,9 @@ public class Charge : MonoBehaviour
     {
         if (!activCharge && Input.GetMouseButton(1))
         {
+            
             StartCoroutine("ChargeHero");
+            if (audio != null) audio.Play();
         }
     }
 
