@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 [RequireComponent(typeof(Shooter))]
 public class MobSpawner : MonoBehaviour
 {
@@ -11,35 +12,46 @@ public class MobSpawner : MonoBehaviour
     public int numOfSpawns;
 
     public ParticleSystem.MinMaxCurve waveFactor;
-    [SerializeField] int wave;
+    [System.NonSerialized] public UnityEvent levelEventEnd = new UnityEvent();
+    private bool wavesInProgress = false, allEnemiesDied = true;
     void Start()
     {
-        wave = 0;
-        InvokeRepeating("Spawn", 0, spawnRate);       
+
     }
 
     void Update()
     {
-        
+        if(!wavesInProgress && !allEnemiesDied && transform.childCount == 0)
+        {
+            allEnemiesDied = true;
+            levelEventEnd.Invoke();
+        }
+    }
+
+    public void StartWaves()
+    {
+        wavesInProgress = true;
+        allEnemiesDied = false;
+        InvokeRepeating("Spawn", 0, spawnRate);
     }
 
     void Spawn()
     {
-        
+        int wave = 0;
         float Factor = 0;
-        float waveF = this.wave;
+        float waveF = wave;
         float waveNumberF = this.waveNumber;
         switch (waveFactor.mode)
         {
             case ParticleSystemCurveMode.Constant:
                 Factor= waveFactor.constant;
-            break;
+                break;
             case ParticleSystemCurveMode.Curve:
                 Factor = waveFactor.curve.Evaluate(waveF / waveNumberF);
-            break;
+                break;
             case ParticleSystemCurveMode.TwoConstants:
                 Factor = Random.Range(waveFactor.constantMin,waveFactor.constantMax);
-            break;
+                break;
                 case ParticleSystemCurveMode.TwoCurves:
                 Factor = Random.Range(waveFactor.curveMin.Evaluate(waveF/waveNumberF),waveFactor.curveMax.Evaluate(waveF/waveNumberF));
             break;
@@ -48,11 +60,12 @@ public class MobSpawner : MonoBehaviour
         for(int i = 0; i<numOfSpawns + wave * Factor; i++)
         {
             shooter.projectile = mobs[Random.Range(0,mobs.Length)];
-            shooter.Shoot(0, true);
-        }
-        if (wave == waveNumber){
-            CancelInvoke();
+            shooter.Shoot(0, true, transform);
         }
         wave++;
+        if (wave == waveNumber){
+            wavesInProgress = false;
+            CancelInvoke();
+        }
     }
 }

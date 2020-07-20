@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Shooter))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Shooter shooter;
-    [SerializeField] private Move moveComponent;
+    public Shooter shooter;
+    public Move moveComponent;
     [SerializeField] private bool InputMouse;
     void Start()
     {
