@@ -22,12 +22,15 @@ public class Shooter : MonoBehaviour
     public float chanceToShootAll = 1;
     public float chanceToShootEvery = 1;
 
+    private TriggerActivator triggerActivator; 
+
     void Start()
     {
+        triggerActivator = gameObject.GetComponent<TriggerActivator>();
         if (autoShooting)
         {
             InvokeRepeating("AutoShoot", 0f, fireRate);
-        }
+        } 
     }
 
     void Update()
@@ -56,11 +59,13 @@ public class Shooter : MonoBehaviour
                             if (lastProjectile.GetComponent<Move>()) lastProjectile.GetComponent<Move>().SetMove(moveVector);
                         }
                         lastProjectile.transform.parent = gameObject.transform.parent;
+                        if (triggerActivator != null) triggerActivator.ActivateTrigger(EventType.Shoot);
                     }
                 }
             }
             lastShootTime = Time.time;
         }
+
     }
 
     public void Shoot(Vector2 vector, bool must = false)
