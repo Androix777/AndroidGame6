@@ -554,6 +554,7 @@ MonoBehaviour:
   time: 0.2
   timeReloaded: 0.8
   audio: {fileID: 3568083341300219802}
+  playerCharge: 1
 --- !u!82 &3568083341300219802
 AudioSource:
   m_ObjectHideFlags: 0

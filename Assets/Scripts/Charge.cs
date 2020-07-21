@@ -11,6 +11,7 @@ public class Charge : MonoBehaviour
     [SerializeField] float timeReloaded;
     [SerializeField] AudioSource audio;
     bool activCharge = false;
+    [SerializeField] bool playerCharge = false;
     void Start()
     {
         
@@ -19,12 +20,16 @@ public class Charge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!activCharge && Input.GetMouseButton(1))
+        if (!activCharge && Input.GetMouseButton(1) && playerCharge)
         {
-            
-            StartCoroutine("ChargeHero");
-            if (audio != null) audio.Play();
+            StartCharge();
         }
+    }
+
+    public void StartCharge()
+    {
+        StartCoroutine("ChargeHero");
+        if (audio != null) audio.Play();
     }
 
     IEnumerator ChargeHero()
