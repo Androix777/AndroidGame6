@@ -78,6 +78,7 @@ public class LevelManager : MonoBehaviour
 
     void GenerateEvents()
     {
+        hero.SetActive(false);
         ShowCanvasWays(true);
         List<int> selectedEvents = new List<int>();
         int currentSelected;
@@ -107,13 +108,14 @@ public class LevelManager : MonoBehaviour
     }
 
     public void ActivateItem(string itemName)
-    {
+    {   hero.SetActive(true);
         hero.AddComponent(System.Type.GetType(itemName));
         GenerateEvents();
     }
 
     void StartBattleEvent()
     {
+        hero.SetActive(true);
         ShowCanvasWays(false);
         mobSpawner.StartWaves();
     }
