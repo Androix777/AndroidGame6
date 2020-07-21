@@ -598,6 +598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioComponent: {fileID: 960127899}
+  volumeBase: 1
+  type: 1
 --- !u!1001 &2370232964997139109
 PrefabInstance:
   m_ObjectHideFlags: 0

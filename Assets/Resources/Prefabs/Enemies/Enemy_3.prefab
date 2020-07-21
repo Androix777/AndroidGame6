@@ -636,6 +636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioComponent: {fileID: 1399507161}
+  volumeBase: 1
+  type: 1
 --- !u!1 &3633851887702459026
 GameObject:
   m_ObjectHideFlags: 0

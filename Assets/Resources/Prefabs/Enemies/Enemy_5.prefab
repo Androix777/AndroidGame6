@@ -481,6 +481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioComponent: {fileID: 1346190013}
+  volumeBase: 1
+  type: 1
 --- !u!1001 &118251537072698080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3712426260113512326}
     m_Modifications:
+    - target: {fileID: -2303529062289509803, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2621944263033542354, guid: 8a2fe8ca8ac43444692d1a53d0488e9b, type: 3}
       propertyPath: _status
       value: 1
