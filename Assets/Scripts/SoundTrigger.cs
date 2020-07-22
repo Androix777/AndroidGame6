@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class SoundTrigger : MonoBehaviour, ITrigger
 {
     [SerializeField] AudioSource audioComponent;
@@ -28,6 +28,21 @@ public class SoundTrigger : MonoBehaviour, ITrigger
         }
     }
 
+    void OnDestroy()
+    {
+       switch(type)
+        {
+            case AudioType.All:
+                SoundSystem.volumeChanged.RemoveListener(ChangeVolume);
+            break;
+            case AudioType.Sounds:
+                SoundSystem.volumeSoundsChanged.RemoveListener(ChangeVolume);
+            break;
+            case AudioType.Music:
+                SoundSystem.volumeMusicChanged.RemoveListener(ChangeVolume);
+            break;
+        } 
+    }
     // Update is called once per frame
     void Update()
     {

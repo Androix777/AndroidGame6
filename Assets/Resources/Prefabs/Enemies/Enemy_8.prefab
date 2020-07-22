@@ -89,7 +89,7 @@ MonoBehaviour:
   maxHP: 1000000
   HP: 1000000
   Immortal: 1
-  _status: 0
+  _status: 1
 --- !u!61 &847362747201910706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   maxHP: 1000000
   HP: 1000000
   Immortal: 1
-  _status: 0
+  _status: 1
 --- !u!1 &7266991689426475908
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7266991689426475907
 Transform:
   m_ObjectHideFlags: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
   maxHP: 1000000
   HP: 1000000
   Immortal: 1
-  _status: 0
+  _status: 1
 --- !u!61 &9023022027930981014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   maxHP: 1000000
   HP: 1000000
   Immortal: 1
-  _status: 0
+  _status: 1
 --- !u!1001 &4091390368438055490
 PrefabInstance:
   m_ObjectHideFlags: 0
