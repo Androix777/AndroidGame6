@@ -26,6 +26,7 @@ public class SoundTrigger : MonoBehaviour, ITrigger
                 SoundSystem.volumeMusicChanged.AddListener(ChangeVolume);
             break;
         }
+        ChangeVolume();
     }
 
     void OnDestroy()

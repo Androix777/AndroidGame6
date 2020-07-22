@@ -20,6 +20,7 @@ public static class SoundSystem
             volume = value;
             volumeChanged.Invoke();
         }
+
     }
 
     public static float VolumeMusic

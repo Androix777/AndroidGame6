@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 public class LevelManager : MonoBehaviour
 {
     public class Way
@@ -16,7 +17,17 @@ public class LevelManager : MonoBehaviour
         public Button button;
     }
     private Way[] ways;
-    
+    private StageGame stage;
+    public UnityEvent stageChanged = new UnityEvent();
+    public StageGame Stage
+    {
+        get { return stage; }
+        set
+        {
+            stage = value;
+            stageChanged.Invoke();
+        }
+    }
 
     public class LevelEvent
     {
@@ -51,7 +62,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         mobSpawner.levelEventEnd.AddListener(GenerateEvents);
-
         ways = new Way[canvasWays.childCount];
         int wayID = 0;
         foreach (Transform way in canvasWays)
@@ -80,6 +90,7 @@ public class LevelManager : MonoBehaviour
     {
         hero.SetActive(false);
         ShowCanvasWays(true);
+        Stage = StageGame.Peace;
         List<int> selectedEvents = new List<int>();
         int currentSelected;
         while(selectedEvents.Count < 3)
@@ -115,6 +126,7 @@ public class LevelManager : MonoBehaviour
 
     void StartBattleEvent()
     {
+        Stage = StageGame.Battle;
         hero.SetActive(true);
         ShowCanvasWays(false);
         mobSpawner.StartWaves();
