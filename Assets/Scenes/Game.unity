@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 1220380092}
   - component: {fileID: 1220380091}
   - component: {fileID: 1220380093}
+  - component: {fileID: 1220380094}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -687,17 +688,38 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220380090}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5826737ffc5c8734db12e57bde3078bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicBattle: {fileID: 0}
-  musicPeace: {fileID: 0}
-  musicBossBattle: {fileID: 0}
+  MusicList:
+  - music: {fileID: 8300000, guid: a9548b5e6e797cd41b5b19dd024da38f, type: 3}
+    stage: 0
+  - music: {fileID: 8300000, guid: f47bcb0910bedc642952d2315babab8c, type: 3}
+    stage: 0
+  - music: {fileID: 8300000, guid: 646994c152ae02d4e84b28b99146b98a, type: 3}
+    stage: 0
+  - music: {fileID: 8300000, guid: 7c1f0091bf8809c4493544b61e7a63a7, type: 3}
+    stage: 2
   manager: {fileID: 1220380091}
   audioComponent: {fileID: 1324927046}
   ticks: 20
+--- !u!114 &1220380094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220380090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5980b90f5e14b49bf63866498874f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
+  volumeMusic: 1
+  volumeSounds: 1
 --- !u!1 &1324927045
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +751,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
