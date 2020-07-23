@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Item : MonoBehaviour
+public class ItemGiver : MonoBehaviour
 {
     public string componentName;
     void Start()

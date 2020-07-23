@@ -44,20 +44,12 @@ public class LevelManager : MonoBehaviour
     }
     private LevelEvent[] LevelEvents;
 
-    [System.Serializable]
-    public class Item
-    {
-        public string componentName;
-        public string itemName;
-        public string description;
-
-    }
-    public Item[] items;
-
     public Transform canvasWays;
     public MobSpawner mobSpawner;
     public GameObject hero;
+    public ItemManager itemManager;
     private int levelNum = 1; //на будущее
+    private List<Item> items;
 
     void Start()
     {
@@ -134,25 +126,14 @@ public class LevelManager : MonoBehaviour
 
     void StartTreasuryEvent()
     {
-        List<int> selectedItems = new List<int>();
-        int currentSelected;
-        while(selectedItems.Count < 3)
+        items = itemManager.GetItems();
+        for(int i = 0; i < items.Count; i++)
         {
-            currentSelected = Random.Range(0,items.Length);
-            if (!selectedItems.Contains(currentSelected))
-            {
-                selectedItems.Add(currentSelected);
-            }
-        }
-
-        int itemID = 0;
-        foreach (int selectedItem in selectedItems)
-        {
-            ways[itemID].nameText.text = items[selectedItem].itemName;
-            ways[itemID].descriptionText.text = items[selectedItem].description;
-            ways[itemID].button.onClick.RemoveAllListeners();
-            ways[itemID].button.onClick.AddListener(delegate{ActivateItem(items[selectedItem].componentName);});
-            itemID++;
+            ways[i].nameText.text = items[i].itemName;
+            ways[i].descriptionText.text = items[i].description;
+            ways[i].button.onClick.RemoveAllListeners();
+            int i2 = i;
+            ways[i].button.onClick.AddListener(delegate{ActivateItem(items[i2].componentName);});
         }
     }
 
