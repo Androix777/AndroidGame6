@@ -690,7 +690,7 @@ MonoBehaviour:
     stage: 0
   - music: {fileID: 8300000, guid: f47bcb0910bedc642952d2315babab8c, type: 3}
     stage: 0
-  - music: {fileID: 8300000, guid: 646994c152ae02d4e84b28b99146b98a, type: 3}
+  - music: {fileID: 8300000, guid: 27840f737f996fa45a2fca7263c6406b, type: 3}
     stage: 0
   - music: {fileID: 8300000, guid: 7c1f0091bf8809c4493544b61e7a63a7, type: 3}
     stage: 2
@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 1
-  volumeMusic: 1
+  volumeMusic: 0.65
   volumeSounds: 1
 --- !u!114 &1220380095
 MonoBehaviour:
