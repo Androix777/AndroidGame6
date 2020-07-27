@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    
-    public float fireRate =0.5f;
+    public ValueStat fireRateValue;
+    public float fireRate = 0.5f;
+    public ValueStat numOfGunsValue;
     public int numOfGuns = 1;
+    public ValueStat distanceBetweenGunsValue;
     public float distanceBetweenGuns;
+    public ValueStat angleBetweenGunsValue;
     public float angleBetweenGuns;
+    public ValueStat angleBetweenGunsRandomValue;
     public float angleBetweenGunsRandom = 0;
     public bool setMoveForward = true;
+    public ValueStat forwardOffsetValue;
     public float forwardOffset = 0;
+    public ValueStat angleOffsetValue;
     public float angleOffset = 0;
+    public ValueStat angleOffsetRandomValue;
     public float angleOffsetRandom = 0;
     public bool autoShooting = false;
     public GameObject projectile;
     private GameObject lastProjectile;
     private Vector2 moveVector;
     private float lastShootTime = 0;
+    public ValueStat chanceToShootAllValue;
     public float chanceToShootAll = 1;
+    public ValueStat chanceToShootEveryValue;
     public float chanceToShootEvery = 1;
 
     private TriggerActivator triggerActivator; 
