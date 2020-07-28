@@ -16,7 +16,7 @@ public class ValueStat
     private float increaseDefault = 1;
     private float moreDefault = 1;
 
-    public float getValue()
+    public float GetStatValue()
     {
         return Mathf.Clamp(value * increase * more,minValue,maxValue) ;
     }
@@ -64,6 +64,21 @@ public class ValueStat
     public float GetMore()
     {
         return more;
+    }
+
+    public void AddValue(float value)
+    {
+        SetValue(GetValue() + value);
+    }
+
+    public void AddIncrease(float increase)
+    {
+        SetIncrease(GetIncrease() + increase);
+    }
+
+    public void AddMore(float more)
+    {
+        SetMore(GetMore() + more);
     }
 #endregion
 }

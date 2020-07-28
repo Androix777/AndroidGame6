@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Life : MonoBehaviour, IDamageable
 {
-    public int maxHP;
+    public ValueStat maxHPValue;
     public int HP;
 
     public bool Immortal;

@@ -61,13 +61,13 @@ public class Boss1AI : MonoBehaviour
 
     IEnumerator Attack1()
     {
-        shooter.numOfGuns = 24;
-        shooter.angleBetweenGuns = 15;
-        shooter.angleOffsetRandom = 0;
+        shooter.numOfGunsValue.SetValue(24);
+        shooter.angleBetweenGunsValue.SetValue(15);
+        shooter.angleOffsetRandomValue.SetValue(0);
         for (int i = 0; i<10; i++)
         {
             shooter.Shoot(0, true);
-            shooter.angleOffset+=5;
+            shooter.angleOffsetValue.AddValue(5);
             yield return new WaitForSeconds(0.5f);
         }
         inProgress = false;
@@ -75,9 +75,9 @@ public class Boss1AI : MonoBehaviour
 
     IEnumerator Attack2()
     {
-        shooter.numOfGuns = 1;
-        shooter.angleBetweenGuns = 0;
-        shooter.angleOffsetRandom = 0;
+        shooter.numOfGunsValue.SetValue(1);
+        shooter.angleBetweenGunsValue.SetValue(0);
+        shooter.angleOffsetRandomValue.SetValue(0);
         float n = 0;
         for (int i = 0; i<180; i++)
         {
@@ -91,9 +91,9 @@ public class Boss1AI : MonoBehaviour
 
     IEnumerator Attack3()
     {
-        shooter.numOfGuns = 10;
-        shooter.angleBetweenGuns = 2;
-        shooter.angleOffsetRandom = 180;
+        shooter.numOfGunsValue.SetValue(10);
+        shooter.angleBetweenGunsValue.SetValue(2);
+        shooter.angleOffsetRandomValue.SetValue(180);
         for (int i = 0; i<30; i++)
         {
             shooter.Shoot(0, true);
@@ -104,9 +104,9 @@ public class Boss1AI : MonoBehaviour
 
     IEnumerator Attack4()
     {
-        shooter.numOfGuns = 1;
-        shooter.angleBetweenGuns = 0;
-        shooter.angleOffsetRandom = 180;
+        shooter.numOfGunsValue.SetValue(1);
+        shooter.angleBetweenGunsValue.SetValue(0);
+        shooter.angleOffsetRandomValue.SetValue(180);
         for (int i = 0; i<500; i++)
         {
             shooter.Shoot(0, true);

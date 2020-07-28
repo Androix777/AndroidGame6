@@ -35,10 +35,10 @@ public class Charge : MonoBehaviour
     IEnumerator ChargeHero()
     {
         activCharge = true;
-        moveComponent.speed = moveComponent.speed * speedMultiplecator;
+        moveComponent.speedValue.AddIncrease(speedMultiplecator);
         lifeComponent.Immortal = true;
         yield return new WaitForSeconds(time);
-        moveComponent.speed = moveComponent.speed / speedMultiplecator;
+        moveComponent.speedValue.AddIncrease(-speedMultiplecator);
         lifeComponent.Immortal = false;
         yield return new WaitForSeconds(timeReloaded);
         activCharge = false;

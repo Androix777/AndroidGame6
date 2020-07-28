@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemShootSpeedUp : MonoBehaviour
 {
-    private float fireRateMult = 0.8f;
+    private float fireRateMult = 0.2f;
     void Start()
     {
-        gameObject.GetComponent<PlayerController>().shooter.fireRate *= fireRateMult;
+        gameObject.GetComponent<PlayerController>().shooter.fireRateValue.AddIncrease(-fireRateMult);
     }
 
     void Update()

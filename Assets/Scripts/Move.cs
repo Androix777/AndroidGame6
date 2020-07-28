@@ -5,7 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public float speed;
+    public ValueStat speedValue;
 
     void Awake()
     {
@@ -24,6 +24,6 @@ public class Move : MonoBehaviour
     public void SetMove(Vector2 vector)
     {
         
-        rb2d.velocity = vector.normalized * speed;
+        rb2d.velocity = vector.normalized * speedValue.GetStatValue();
     }
 }

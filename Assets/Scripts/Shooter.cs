@@ -5,31 +5,21 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public ValueStat fireRateValue;
-    public float fireRate = 0.5f;
     public ValueStat numOfGunsValue;
-    public int numOfGuns = 1;
     public ValueStat distanceBetweenGunsValue;
-    public float distanceBetweenGuns;
     public ValueStat angleBetweenGunsValue;
-    public float angleBetweenGuns;
     public ValueStat angleBetweenGunsRandomValue;
-    public float angleBetweenGunsRandom = 0;
     public bool setMoveForward = true;
     public ValueStat forwardOffsetValue;
-    public float forwardOffset = 0;
     public ValueStat angleOffsetValue;
-    public float angleOffset = 0;
     public ValueStat angleOffsetRandomValue;
-    public float angleOffsetRandom = 0;
     public bool autoShooting = false;
     public GameObject projectile;
     private GameObject lastProjectile;
     private Vector2 moveVector;
     private float lastShootTime = 0;
     public ValueStat chanceToShootAllValue;
-    public float chanceToShootAll = 1;
     public ValueStat chanceToShootEveryValue;
-    public float chanceToShootEvery = 1;
 
     private TriggerActivator triggerActivator; 
 
@@ -38,7 +28,7 @@ public class Shooter : MonoBehaviour
         triggerActivator = gameObject.GetComponent<TriggerActivator>();
         if (autoShooting)
         {
-            InvokeRepeating("AutoShoot", 0f, fireRate);
+            InvokeRepeating("AutoShoot", 0f, fireRateValue.GetStatValue());
         } 
     }
 
@@ -49,18 +39,18 @@ public class Shooter : MonoBehaviour
 
     public void Shoot(float angle, bool must = false, Transform parent = null)
     {
-        if (Time.time - lastShootTime > fireRate || must)
+        if (Time.time - lastShootTime > fireRateValue.GetStatValue() || must)
         {
-            if(Random.value < chanceToShootAll)
+            if(Random.value < chanceToShootAllValue.GetStatValue())
             {
-                float angleOffsetRandomCurrent = Random.Range(-angleOffsetRandom, angleOffsetRandom);
-                for (int i = 0; i < numOfGuns; i++)
+                float angleOffsetRandomCurrent = Random.Range(-angleOffsetRandomValue.GetStatValue(), angleOffsetRandomValue.GetStatValue());
+                for (int i = 0; i < numOfGunsValue.GetStatValue(); i++)
                 {
-                    if(Random.value < chanceToShootEvery)
+                    if(Random.value < chanceToShootEveryValue.GetStatValue())
                     {
                         lastProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-                        lastProjectile.transform.Rotate(new Vector3(0, 0, angle + ((angleBetweenGuns * (numOfGuns-1)) / 2) - angleBetweenGuns * i + angleOffset + Random.Range(-angleBetweenGunsRandom, angleBetweenGunsRandom) + angleOffsetRandomCurrent));
-                        lastProjectile.transform.Translate(-(distanceBetweenGuns * (numOfGuns - 1)) / 2 + i * distanceBetweenGuns, forwardOffset, 0);
+                        lastProjectile.transform.Rotate(new Vector3(0, 0, angle + ((angleBetweenGunsValue.GetStatValue() * (numOfGunsValue.GetStatValue()-1)) / 2) - angleBetweenGunsValue.GetStatValue() * i + angleOffsetValue.GetStatValue() + Random.Range(-angleBetweenGunsRandomValue.GetStatValue(), angleBetweenGunsRandomValue.GetStatValue()) + angleOffsetRandomCurrent));
+                        lastProjectile.transform.Translate(-(distanceBetweenGunsValue.GetStatValue() * (numOfGunsValue.GetStatValue() - 1)) / 2 + i * distanceBetweenGunsValue.GetStatValue(), forwardOffsetValue.GetStatValue(), 0);
                         lastProjectile.SetActive(true);
                         if (setMoveForward)
                         {
