@@ -176,55 +176,45 @@ MonoBehaviour:
     value: 2
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  fireRate: 2
   numOfGunsValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  numOfGuns: 1
   distanceBetweenGunsValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  distanceBetweenGuns: 0
   angleBetweenGunsValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGuns: 0
   angleBetweenGunsRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGunsRandom: 0
   setMoveForward: 1
   forwardOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  forwardOffset: 0
   angleOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffset: 0
   angleOffsetRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffsetRandom: 0
   autoShooting: 0
   projectile: {fileID: 77498419142297892}
   chanceToShootAllValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootAll: 1
   chanceToShootEveryValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootEvery: 1
 --- !u!114 &77498417914576707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHPValue:
+    value: 1000
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   maxHP: 1000
   HP: 1000
   Immortal: 0

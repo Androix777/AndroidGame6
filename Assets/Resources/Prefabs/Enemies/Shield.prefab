@@ -86,7 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000000
+  maxHPValue:
+    value: 1
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   HP: 1000000
   Immortal: 1
   _status: 1
@@ -128,7 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000000
+  maxHPValue:
+    value: 1
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   HP: 1000000
   Immortal: 1
   _status: 1
@@ -207,7 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 80
+  maxHPValue:
+    value: 80
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   HP: 80
   Immortal: 0
   _status: 1
@@ -227,55 +236,45 @@ MonoBehaviour:
     value: 0.5
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  fireRate: 0.5
   numOfGunsValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  numOfGuns: 1
   distanceBetweenGunsValue:
     value: 3
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  distanceBetweenGuns: 3
   angleBetweenGunsValue:
     value: 3
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGuns: 3
   angleBetweenGunsRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGunsRandom: 0
   setMoveForward: 1
   forwardOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  forwardOffset: 0
   angleOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffset: 0
   angleOffsetRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffsetRandom: 0
   autoShooting: 0
   projectile: {fileID: 7953591020472367351}
   chanceToShootAllValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootAll: 1
   chanceToShootEveryValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootEvery: 1
 --- !u!114 &7266991689426475911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedValue:
+    value: 5
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   speed: 5
 --- !u!114 &7266991689426475919
 MonoBehaviour:
@@ -353,55 +356,45 @@ MonoBehaviour:
     value: 0.5
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  fireRate: 0.5
   numOfGunsValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  numOfGuns: 1
   distanceBetweenGunsValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  distanceBetweenGuns: 0
   angleBetweenGunsValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGuns: 0
   angleBetweenGunsRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleBetweenGunsRandom: 0
   setMoveForward: 1
   forwardOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  forwardOffset: 0
   angleOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffset: 0
   angleOffsetRandomValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffsetRandom: 0
   autoShooting: 0
   projectile: {fileID: 6102083150663612708, guid: 393ff90f72be1ba40ae8e6291ad2f618, type: 3}
   chanceToShootAllValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootAll: 1
   chanceToShootEveryValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootEvery: 1
 --- !u!114 &7266991689426475913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5e744f60b0d941912cb713d3efc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedValue:
+    value: 1
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   speed: 13
 --- !u!50 &7953591020472367349
 Rigidbody2D:
@@ -847,7 +844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000000
+  maxHPValue:
+    value: 1
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   HP: 1000000
   Immortal: 1
   _status: 1
@@ -889,7 +889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff942af4bb5c9054db10fbf45b14c37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000000
+  maxHPValue:
+    value: 1
+    minValue: -3.4028235e+38
+    maxValue: 3.4028235e+38
   HP: 1000000
   Immortal: 1
   _status: 1
