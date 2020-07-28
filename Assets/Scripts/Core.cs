@@ -6,16 +6,19 @@ using System.Reflection;
 public class Core : MonoBehaviour
 {
     public List<DamageDealer> meleeDamage = new List<DamageDealer>();
-    public List<DamageDealer> rangeDamage = new List<DamageDealer>();
-    public List<Shooter> shooters = new List<Shooter>();
+    public List<DamageDealer> spawningDamage = new List<DamageDealer>();
+    public List<Shooter> noCombatShooters = new List<Shooter>();
+    public List<Shooter> combatShooters = new List<Shooter>();
     public List<Life> lifes = new List<Life>();
     [ContextMenu("AddComponents")]
     private void AddComponents()
     {
         meleeDamage.Clear();
-        rangeDamage.Clear();
-        shooters.Clear();
+        spawningDamage.Clear();
+        noCombatShooters.Clear();
+        combatShooters.Clear();
         lifes.Clear();
+
         foreach(Component component in GetAllComponents(GetAllGO(gameObject)))
         {
             if(component.GetType() == typeof(Life))
@@ -24,34 +27,47 @@ public class Core : MonoBehaviour
             }
             else if (component.GetType() == typeof(Shooter))
             {
-                shooters.Add(component as Shooter);
+                noCombatShooters.Add(component as Shooter);
             }
             else if (component.GetType() == typeof(DamageDealer))
             {
                 meleeDamage.Add(component as DamageDealer);
             }
         }
-        foreach(DamageDealer damageDealer in meleeDamage)
+
+        foreach(Shooter shooter in noCombatShooters)
         {
-            foreach(Shooter shooter in shooters)
+            foreach(Component component in GetAllComponents(GetAllGO(shooter.projectile.gameObject)))
             {
-                if(GameObject.ReferenceEquals(shooter.projectile, damageDealer.gameObject))
+                if(component.GetType() == typeof(DamageDealer))
                 {
-                    rangeDamage.Add(damageDealer);
-                    break;
+                    if(!combatShooters.Contains(shooter))
+                    {
+                        combatShooters.Add(shooter);
+                    }
+                    spawningDamage.Add(component as DamageDealer);
                 }
             }
         }
-        foreach(DamageDealer damageDealer in rangeDamage)
+
+        foreach(Shooter shooter in combatShooters)
+        {
+            noCombatShooters.Remove(shooter);
+        }
+
+        foreach(DamageDealer damageDealer in spawningDamage)
         {
             meleeDamage.Remove(damageDealer);
         }
     }
 
-    private List<GameObject> GetAllGO(GameObject GO)
+    private List<GameObject> GetAllGO(GameObject GO, bool noFirst = false)
     {
         List<GameObject> allGO = new List<GameObject>();
-        allGO.Add(GO);
+        if (!noFirst)
+        {
+            allGO.Add(GO);
+        }
         foreach(Transform child in GO.transform)
         {
             allGO.AddRange(GetAllGO(child.gameObject));
