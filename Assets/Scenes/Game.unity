@@ -403,55 +403,45 @@ MonoBehaviour:
     value: 0.5
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  fireRate: 0.5
   numOfGunsValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  numOfGuns: 1
   distanceBetweenGunsValue:
     value: 0
     minValue: 0
     maxValue: 3.4028235e+38
-  distanceBetweenGuns: 0
   angleBetweenGunsValue:
     value: 0
     minValue: 0
     maxValue: 3.4028235e+38
-  angleBetweenGuns: 0
   angleBetweenGunsRandomValue:
     value: 0
     minValue: 0
     maxValue: 3.4028235e+38
-  angleBetweenGunsRandom: 0
   setMoveForward: 0
   forwardOffsetValue:
     value: 36
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  forwardOffset: 36
   angleOffsetValue:
     value: 0
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffset: 0
   angleOffsetRandomValue:
     value: 180
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  angleOffsetRandom: 180
   autoShooting: 0
   projectile: {fileID: 0}
   chanceToShootAllValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootAll: 1
   chanceToShootEveryValue:
     value: 1
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  chanceToShootEvery: 1
 --- !u!4 &861904993
 Transform:
   m_ObjectHideFlags: 0
@@ -765,15 +755,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - componentName: ItemDamageUp
-    itemName: "\u0414\u0430\u043C\u0430\u0433"
-    description: "\u0414\u0430\u0435\u0442 \u0434\u0430\u043C\u0430\u0433"
-  - componentName: ItemShootSpeedUp
-    itemName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
-    description: "\u0414\u0430\u0435\u0442 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
-  - componentName: ItemSpeedUp
-    itemName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
-    description: "\u0414\u0430\u0435\u0442 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+  - {fileID: 11400000, guid: c5cb822fabca72543840dd190a148fee, type: 2}
+  - {fileID: 11400000, guid: 87a570ff807cb5245a9a94ba8e9053d9, type: 2}
+  - {fileID: 11400000, guid: 901a9f8f6556a6e4db5e7b5c636fe9bc, type: 2}
+  - {fileID: 11400000, guid: cb714b03d9fd8a24282d477a7916eb80, type: 2}
 --- !u!1 &1324927045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1426,10 @@ PrefabInstance:
     - target: {fileID: 3568083341300218989, guid: 54b761d7c54703249946b81637614a4f, type: 3}
       propertyPath: m_Name
       value: Hero
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568083341300219797, guid: 54b761d7c54703249946b81637614a4f, type: 3}
+      propertyPath: speedValue.value
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3568083341300219798, guid: 54b761d7c54703249946b81637614a4f, type: 3}
       propertyPath: m_LocalPosition.x

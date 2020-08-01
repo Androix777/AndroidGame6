@@ -31,12 +31,3 @@ public class ItemManager : MonoBehaviour
         return selectedItems;
     }
 }
-
-[System.Serializable]
-public class Item
-{
-    public string componentName;
-    public string itemName;
-    public string description;
-
-}

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,14 +18,14 @@ public class LevelManager : MonoBehaviour
         public Button button;
     }
     private Way[] ways;
-    private StageGame stage;
+    private StageGame _stage;
     public UnityEvent stageChanged = new UnityEvent();
     public StageGame Stage
     {
-        get { return stage; }
+        get { return _stage; }
         set
         {
-            stage = value;
+            _stage = value;
             stageChanged.Invoke();
         }
     }
@@ -42,7 +43,7 @@ public class LevelManager : MonoBehaviour
         public delegate void EventDelegate();
         public EventDelegate eventDelegate;
     }
-    private LevelEvent[] LevelEvents;
+    private LevelEvent[] levelEvents;
 
     public Transform canvasWays;
     public MobSpawner mobSpawner;
@@ -64,11 +65,11 @@ public class LevelManager : MonoBehaviour
             wayID++;
         }
 
-        LevelEvents = new LevelEvent[4];
-        LevelEvents[0] = new LevelEvent("Battle", StartBattleEvent);
-        LevelEvents[1] = new LevelEvent("Treasury", StartTreasuryEvent);
-        LevelEvents[2] = new LevelEvent("Shop", StartShopEvent);
-        LevelEvents[3] = new LevelEvent("Random", StartRandomEvent);
+        levelEvents = new LevelEvent[4];
+        levelEvents[0] = new LevelEvent("Battle", StartBattleEvent);
+        levelEvents[1] = new LevelEvent("Treasury", StartTreasuryEvent);
+        levelEvents[2] = new LevelEvent("Shop", StartShopEvent);
+        levelEvents[3] = new LevelEvent("Random", StartRandomEvent);
 
         GenerateEvents();
     }
@@ -87,7 +88,7 @@ public class LevelManager : MonoBehaviour
         int currentSelected;
         while(selectedEvents.Count < 3)
         {
-            currentSelected = Random.Range(0,LevelEvents.Length);
+            currentSelected = Random.Range(0,levelEvents.Length);
             if (!selectedEvents.Contains(currentSelected))
             {
                 selectedEvents.Add(currentSelected);
@@ -97,10 +98,10 @@ public class LevelManager : MonoBehaviour
         int wayID = 0;
         foreach (int selectedEvent in selectedEvents)
         {
-            ways[wayID].nameText.text = LevelEvents[selectedEvent].name;
-            ways[wayID].descriptionText.text = LevelEvents[selectedEvent].description;
+            ways[wayID].nameText.text = levelEvents[selectedEvent].name;
+            ways[wayID].descriptionText.text = levelEvents[selectedEvent].description;
             ways[wayID].button.onClick.RemoveAllListeners();
-            ways[wayID].button.onClick.AddListener(delegate{LevelEvents[selectedEvent].eventDelegate();});
+            ways[wayID].button.onClick.AddListener(delegate{levelEvents[selectedEvent].eventDelegate();});
             wayID++;
         }
     }
@@ -110,9 +111,9 @@ public class LevelManager : MonoBehaviour
         canvasWays.gameObject.SetActive(b);
     }
 
-    public void ActivateItem(string itemName)
+    public void ActivateItem(MonoScript itemScript)
     {   hero.SetActive(true);
-        hero.AddComponent(System.Type.GetType(itemName));
+        hero.AddComponent(itemScript.GetClass());
         GenerateEvents();
     }
 
@@ -133,7 +134,7 @@ public class LevelManager : MonoBehaviour
             ways[i].descriptionText.text = items[i].description;
             ways[i].button.onClick.RemoveAllListeners();
             int i2 = i;
-            ways[i].button.onClick.AddListener(delegate{ActivateItem(items[i2].componentName);});
+            ways[i].button.onClick.AddListener(delegate{ActivateItem(items[i2].component);});
         }
     }
 
