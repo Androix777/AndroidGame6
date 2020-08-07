@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 1220380093}
   - component: {fileID: 1220380094}
   - component: {fileID: 1220380095}
+  - component: {fileID: 1220380096}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -759,6 +760,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87a570ff807cb5245a9a94ba8e9053d9, type: 2}
   - {fileID: 11400000, guid: 901a9f8f6556a6e4db5e7b5c636fe9bc, type: 2}
   - {fileID: 11400000, guid: cb714b03d9fd8a24282d477a7916eb80, type: 2}
+--- !u!114 &1220380096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220380090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab531d9577c352340b10967f157c3758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleVariants:
+  - {fileID: 11400000, guid: c93a576b65730c2498bdc83b8b35067b, type: 2}
+  - {fileID: 11400000, guid: 96e943eb0f9df5648ab72b0a24348531, type: 2}
+  - {fileID: 11400000, guid: 38d013f3e1d755e40b8cc575a19e093a, type: 2}
+  - {fileID: 11400000, guid: 08735aebe8d4d874593e1a3378efb69f, type: 2}
 --- !u!1 &1324927045
 GameObject:
   m_ObjectHideFlags: 0

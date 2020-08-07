@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using UnityEditor;
+﻿using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Linq;
 public class LevelManager : MonoBehaviour
 {
     public class Way
@@ -30,121 +30,127 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public class LevelEvent
-    {
-        public LevelEvent(string name, EventDelegate eventDelegate)
-        {
-            this.name = name;
-            this.eventDelegate = eventDelegate;
-        }
-        public string name;
-        public string description = "test test test";
-        public float probability; //на будущее
-        public delegate void EventDelegate();
-        public EventDelegate eventDelegate;
-    }
-    private LevelEvent[] levelEvents;
-
     public Transform canvasWays;
     public MobSpawner mobSpawner;
     public GameObject hero;
     public ItemManager itemManager;
-    private int levelNum = 1; //на будущее
-    private List<Item> items;
+    public BattleVariantManager battleVariantManager;
+    private GameFloor gameFloor;
+    private int roomNum;
+    private List<Item> selectedItems;
+    private List<BattleVariant> selectedBattleVariants;
+    private bool nowBattle = true;
+
 
     void Start()
     {
-        mobSpawner.levelEventEnd.AddListener(GenerateEvents);
+        gameFloor = GameFloor.FirstLevel;
+        roomNum = 1;
+        mobSpawner.battleEnd.AddListener(delegate{ShowCanvasWays(true);});
         ways = new Way[canvasWays.childCount];
-        int wayID = 0;
+        int wayID = 0, wayID2;
         foreach (Transform way in canvasWays)
         {
             ways[wayID] = new Way(way.Find("Name").GetComponent<Text>(), 
             way.Find("Description").GetComponent<Text>(), 
             way.Find("Button").GetComponent<Button>());
+            wayID2 = wayID;
+            ways[wayID].button.onClick.AddListener(delegate{PressButton(wayID2);});
             wayID++;
         }
-
-        levelEvents = new LevelEvent[4];
-        levelEvents[0] = new LevelEvent("Battle", StartBattleEvent);
-        levelEvents[1] = new LevelEvent("Treasury", StartTreasuryEvent);
-        levelEvents[2] = new LevelEvent("Shop", StartShopEvent);
-        levelEvents[3] = new LevelEvent("Random", StartRandomEvent);
 
         GenerateEvents();
     }
 
-    void Update()
+    private void GenerateEvents()
     {
-        
-    }
-
-    void GenerateEvents()
-    {
-        hero.SetActive(false);
-        ShowCanvasWays(true);
-        Stage = StageGame.Peace;
-        List<int> selectedEvents = new List<int>();
-        int currentSelected;
-        while(selectedEvents.Count < 3)
+        switch(gameFloor)
         {
-            currentSelected = Random.Range(0,levelEvents.Length);
-            if (!selectedEvents.Contains(currentSelected))
-            {
-                selectedEvents.Add(currentSelected);
-            }
+            case GameFloor.FirstLevel:
+                switch(roomNum)
+                {
+                    case 1:
+                        ShowBattleWays(battleVariantManager.GetBattleVariants(BattleType.Normal));
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
         }
-
-        int wayID = 0;
-        foreach (int selectedEvent in selectedEvents)
-        {
-            ways[wayID].nameText.text = levelEvents[selectedEvent].name;
-            ways[wayID].descriptionText.text = levelEvents[selectedEvent].description;
-            ways[wayID].button.onClick.RemoveAllListeners();
-            ways[wayID].button.onClick.AddListener(delegate{levelEvents[selectedEvent].eventDelegate();});
-            wayID++;
-        }
+        roomNum++;
     }
 
     public void ShowCanvasWays(bool b)
     {
         canvasWays.gameObject.SetActive(b);
     }
-
-    public void ActivateItem(MonoScript itemScript)
-    {   hero.SetActive(true);
-        hero.AddComponent(itemScript.GetClass());
-        GenerateEvents();
+    public void ShowBattleWays(List<BattleVariant> battleVariants)
+    {
+        selectedBattleVariants = battleVariants;
+        AddWays(selectedBattleVariants);
     }
 
-    void StartBattleEvent()
+    void StartBattle(BattleVariant battleVariant)
     {
         Stage = StageGame.Battle;
         hero.SetActive(true);
         ShowCanvasWays(false);
-        mobSpawner.StartWaves();
+        mobSpawner.StartWaves(battleVariant);
     }
 
-    void StartTreasuryEvent()
+    public void ActivateItem(Item item)
     {
-        items = itemManager.GetItems();
-        for(int i = 0; i < items.Count; i++)
+        hero.SetActive(true);
+        hero.AddComponent(item.component.GetClass());
+        GenerateEvents();
+    }
+
+    void PressButton(int index)
+    {
+        if(nowBattle)
         {
-            ways[i].nameText.text = items[i].itemName;
-            ways[i].descriptionText.text = items[i].description;
-            ways[i].button.onClick.RemoveAllListeners();
-            int i2 = i;
-            ways[i].button.onClick.AddListener(delegate{ActivateItem(items[i2].component);});
+            selectedItems = itemManager.GetItems(selectedBattleVariants[index].GetRevard(3));
+            AddWays(selectedItems, false);
+            StartBattle(selectedBattleVariants[index]);
+        }
+        else
+        {
+            ActivateItem(selectedItems[index]);
+            GenerateEvents();
         }
     }
 
-    void StartShopEvent()
+    void AddWays(List<IShowable> ishowables, bool show = true)
     {
+        for(int i = 0; i < ishowables.Count; i++)
+        {
+            ways[i].nameText.text = ishowables[i].GetName();
+            ways[i].descriptionText.text = ishowables[i].GetDescription();
+        }
+        if(show)
+        {
+            ShowCanvasWays(true);
+        }
 
+        if(ishowables[0].GetType() == typeof(BattleVariant))
+        {
+            nowBattle = true;
+        }
+        else
+        {
+            nowBattle = false;
+        }
     }
-
-    void StartRandomEvent()
+    void AddWays(List<Item> items, bool show = true)
     {
-        
+        AddWays(items.Cast<IShowable>().ToList(), show);
+    }
+    void AddWays(List<BattleVariant> battleVariants, bool show = true)
+    {
+        AddWays(battleVariants.Cast<IShowable>().ToList(), show);
     }
 }

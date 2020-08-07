@@ -6,6 +6,7 @@ using System;
 public class ItemManager : MonoBehaviour
 {
     public Item[] items;
+    public Item defaultItem;
     void Start()
     {
         
@@ -16,17 +17,35 @@ public class ItemManager : MonoBehaviour
         
     }
 
-    public List<Item> GetItems()
+    public List<Item> GetItems(List<Rarity> rarities)
     {
         System.Random rnd = new System.Random();
         List<Item> selectedItems = new List<Item>();
+        List<Item> correctItems = new List<Item>();
         List<Item> allItems = new List<Item>(items);
-        int itemNum;
-        while(selectedItems.Count < 3)
+
+        foreach(Rarity rarity in rarities)
         {
-            itemNum = rnd.Next(allItems.Count);
-            selectedItems.Add(allItems[itemNum]);
-            allItems.RemoveAt(itemNum);
+            correctItems.Clear();
+            foreach(Item item in allItems)
+            {
+                if (item.rarity == rarity)
+                {
+                    correctItems.Add(item);
+                }
+            }
+            foreach(Item item in selectedItems)
+            {
+                correctItems.Remove(item);
+            }
+            if(correctItems.Count > 0)
+            {
+                selectedItems.Add(correctItems[correctItems.Count]);
+            }
+            else
+            {
+                selectedItems.Add(defaultItem);
+            }
         }
         return selectedItems;
     }
