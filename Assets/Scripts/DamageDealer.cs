@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
+    public ValueStat damageValue;
     public int damage;
     [SerializeField] private Status _status = Status.Enemy;
     public Status Status
@@ -47,7 +48,7 @@ public class DamageDealer : MonoBehaviour
         IDamageable damageable = target.GetComponent<IDamageable>();
         if (damageable != null && damageable.Status != Status)
         {
-            damageable.TakeDamage(damage);
+            damageable.TakeDamage(damageValue.GetStatValue());
             time += coolDown;
             if(destroyAfterDealDamage)
             {

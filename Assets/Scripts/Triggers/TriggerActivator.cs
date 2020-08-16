@@ -4,23 +4,9 @@ using UnityEngine;
 
 public class TriggerActivator : MonoBehaviour
 {
-    [System.Serializable]
-    public class Trigger
-    {
-        public EventType eventType;
-        public Component triggerComponent;
-    }
-    public Trigger [] triggers;
-    
-    void Start()
-    {
 
-    }
+    public List<Trigger> triggers;
 
-    void Update()
-    {
-        
-    }
 
     public void ActivateTrigger(EventType selectedEvent)
     {
@@ -32,4 +18,11 @@ public class TriggerActivator : MonoBehaviour
             }
         }
     }
+}
+
+[System.Serializable]
+public class Trigger
+{
+    public EventType eventType;
+    public Component triggerComponent;
 }

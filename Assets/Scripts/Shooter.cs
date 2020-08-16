@@ -21,11 +21,10 @@ public class Shooter : MonoBehaviour
     public ValueStat chanceToShootAllValue;
     public ValueStat chanceToShootEveryValue;
 
-    private TriggerActivator triggerActivator; 
+    [SerializeField] private TriggerActivator triggerActivator; 
 
     void Start()
     {
-        triggerActivator = gameObject.GetComponent<TriggerActivator>();
         if (autoShooting)
         {
             InvokeRepeating("AutoShoot", 0f, fireRateValue.GetStatValue());

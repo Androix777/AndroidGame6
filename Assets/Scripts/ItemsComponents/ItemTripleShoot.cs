@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemTripleShoot : MonoBehaviour
 {
-    
     void Start()
     {
         gameObject.GetComponent<PlayerController>().shooter.numOfGunsValue.AddValue(2);

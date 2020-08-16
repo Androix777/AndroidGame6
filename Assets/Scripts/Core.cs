@@ -10,6 +10,8 @@ public class Core : MonoBehaviour
     public List<Shooter> noCombatShooters = new List<Shooter>();
     public List<Shooter> combatShooters = new List<Shooter>();
     public List<Life> lifes = new List<Life>();
+
+    
     [ContextMenu("AddComponents")]
     private void AddComponents()
     {

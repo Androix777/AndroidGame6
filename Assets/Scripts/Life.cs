@@ -5,7 +5,7 @@ using UnityEngine;
 public class Life : MonoBehaviour, IDamageable
 {
     public ValueStat maxHPValue;
-    public int HP;
+    public float HP;
 
     public bool Immortal;
     [SerializeField] private Status _status = Status.Enemy;
@@ -40,7 +40,7 @@ public class Life : MonoBehaviour, IDamageable
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (!Immortal)
         {
