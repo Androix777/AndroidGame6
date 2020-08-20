@@ -7,9 +7,12 @@ public class ShotGunItem1 : MonoBehaviour, ITrigger
     
     void Start()
     {
-        gameObject.GetComponent<PlayerController>().shooter.fireRateValue.AddIncrease(-0.1f);
-        gameObject.GetComponent<PlayerController>().shooter.projectile.GetComponent<DelayedDeath>().time *=0.85f;
-        gameObject.GetComponent<PlayerController>().shooter.projectile.GetComponent<DamageDealer>().damageValue.AddIncrease(10);
+        foreach (Shooter shooter in gameObject.GetComponent<Core>().combatShooters)
+        {
+            shooter.fireRateValue.AddIncrease(-0.1f);
+            shooter.projectile.GetComponent<DelayedDeath>().time *= 0.85f;
+            shooter.projectile.GetComponent<DamageDealer>().damageValue.AddIncrease(10);
+        }
     }
 
     public void ActivateEffect()

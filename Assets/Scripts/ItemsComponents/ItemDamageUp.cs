@@ -7,7 +7,8 @@ public class ItemDamageUp : MonoBehaviour
     private int damagePlus = 5;
     void Start()
     {
-        gameObject.GetComponent<PlayerController>().shooter.projectile.GetComponent<DamageDealer>().damage +=damagePlus;
+        foreach (DamageDealer damageDealer in gameObject.GetComponent<Core>().spawningDamage)
+            damageDealer.damageValue.AddValue(damagePlus);
     }
 
     void Update()

@@ -7,7 +7,8 @@ public class ItemShootSpeedUp : MonoBehaviour
     private float fireRateMult = 0.2f;
     void Start()
     {
-        gameObject.GetComponent<PlayerController>().shooter.fireRateValue.AddIncrease(-fireRateMult);
+        foreach(Shooter shooter in gameObject.GetComponent<Core>().combatShooters)
+            shooter.fireRateValue.AddIncrease(-fireRateMult);
     }
 
     void Update()
