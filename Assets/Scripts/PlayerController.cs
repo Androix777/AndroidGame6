@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Move))]
-[RequireComponent(typeof(Shooter))]
+//[RequireComponent(typeof(Shooter))]
 public class PlayerController : MonoBehaviour
 {
     public Shooter shooter;
