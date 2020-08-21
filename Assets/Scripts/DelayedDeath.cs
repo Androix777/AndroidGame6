@@ -31,6 +31,4 @@ public class DelayedDeath : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

@@ -25,4 +25,15 @@ public class Trigger
 {
     public EventType eventType;
     public Component triggerComponent;
+
+    public Trigger()
+    {
+
+    }
+
+    public Trigger(EventType eventType, Component triggerComponent)
+    {
+        this.eventType = eventType;
+        this.triggerComponent = triggerComponent;
+    }
 }
