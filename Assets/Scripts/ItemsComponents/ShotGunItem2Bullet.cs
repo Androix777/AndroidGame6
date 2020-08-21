@@ -6,7 +6,7 @@ public class ShotGunItem2Bullet : MonoBehaviour, ITrigger
 {
     [SerializeField] float damageMultiplicator = 1;
     [SerializeField] float radius = 1;
-    float damage;
+    float damage = 1;
     
     public void Start()
     {

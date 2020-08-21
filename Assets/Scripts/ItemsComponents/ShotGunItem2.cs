@@ -6,6 +6,7 @@ public class ShotGunItem2 : MonoBehaviour
 {
     [SerializeField] float speed = -1f;
     [SerializeField] float speedIncrease = -0.2f;
+
     void Start()
     {
         foreach (DamageDealer damageDealer in gameObject.GetComponent<Core>().spawningDamage)
