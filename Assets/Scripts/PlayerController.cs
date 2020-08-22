@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public Shooter shooter;
     public Move moveComponent;
     [SerializeField] private bool InputMouse;
+
+    public bool moveHero = false;
+
     void Start()
     {
 
@@ -20,7 +23,8 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        //Debug.Log(movement.ToString());
+
+        moveHero = movement != Vector2.zero;
         moveComponent.SetMove(movement);
 
         if (!InputMouse)

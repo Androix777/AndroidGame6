@@ -18,11 +18,13 @@ public class DamageDealer : MonoBehaviour
             _status = value; 
         }
     }
+
     public bool destroyAfterDealDamage;   
     private TriggerActivator triggerActivator; 
 
     [SerializeField] private float coolDown = 0.5f; 
-    private float time;
+    public float time { get; private set;}
+
     void Start()
     {
         triggerActivator = gameObject.GetComponent<TriggerActivator>();
