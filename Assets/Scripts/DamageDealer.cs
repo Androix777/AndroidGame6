@@ -21,13 +21,14 @@ public class DamageDealer : MonoBehaviour
 
     public bool destroyAfterDealDamage;   
     private TriggerActivator triggerActivator; 
+    public TriggerActivator triggerActivatorSpawn; 
 
     [SerializeField] private float coolDown = 0.5f; 
     public float time { get; private set;}
 
     void Start()
     {
-        triggerActivator = gameObject.GetComponent<TriggerActivator>();
+        triggerActivator = gameObject.GetComponent<TriggerActivator>();      
     }
 
     void Update()
@@ -52,7 +53,17 @@ public class DamageDealer : MonoBehaviour
         {
             damageable.TakeDamage(damageValue.GetStatValue());
             time += coolDown;
-            if(destroyAfterDealDamage)
+
+            if (triggerActivatorSpawn)
+            {
+                triggerActivatorSpawn.ActivateTrigger(EventType.DealDamage);
+            }
+            if (triggerActivator)
+            {
+                triggerActivator.ActivateTrigger(EventType.DealDamage);
+            }
+
+            if (destroyAfterDealDamage)
             {
                 if (triggerActivator)
                 {

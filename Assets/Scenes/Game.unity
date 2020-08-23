@@ -1452,6 +1452,10 @@ PrefabInstance:
       propertyPath: damageValue.minValue
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 3568083339826157451, guid: 54b761d7c54703249946b81637614a4f, type: 3}
+      propertyPath: triggerActivatorSpawn
+      value: 
+      objectReference: {fileID: 3568083340029504915}
     - target: {fileID: 3568083341300218989, guid: 54b761d7c54703249946b81637614a4f, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -1524,3 +1528,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggers: []
+--- !u!114 &3568083340029504915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3568083341300218990, guid: 54b761d7c54703249946b81637614a4f, type: 3}
+  m_PrefabInstance: {fileID: 3568083340029504912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547866621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22177cc1d5c0cc499aec04bbd35622a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
