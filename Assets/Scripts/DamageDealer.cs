@@ -5,7 +5,6 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     public ValueStat damageValue;
-    public int damage;
     [SerializeField] private Status _status = Status.Enemy;
     public Status Status
     {

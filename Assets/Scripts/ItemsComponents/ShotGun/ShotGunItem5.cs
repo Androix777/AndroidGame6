@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ShotGunItem5 : MonoBehaviour
@@ -7,23 +8,21 @@ public class ShotGunItem5 : MonoBehaviour
     [SerializeField] float speedFire = -1f;
     [SerializeField] float speedFireIncrease = -0.2f;
 
-    [SerializeField] Component debuffComponent;
+    [SerializeField] MonoScript debuffComponent;
 
     void Start()
     {
-
+        
         foreach (Shooter shooter in gameObject.GetComponent<Core>().combatShooters)
         {
             shooter.fireRateValue.AddValue(speedFire);
             shooter.fireRateValue.AddIncrease(speedFireIncrease);
         }
-    }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (DamageDealer damageDealer in gameObject.GetComponent<Core>().spawningDamage)
+        {
+            DebuffAdd debuff = damageDealer.gameObject.AddComponent<DebuffAdd>();
+            debuff.typeDebuff = debuffComponent;
+        }
     }
 }

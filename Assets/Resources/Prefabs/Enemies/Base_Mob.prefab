@@ -108,6 +108,7 @@ MonoBehaviour:
   damage: 20
   _status: 1
   destroyAfterDealDamage: 1
+  triggerActivatorSpawn: {fileID: 0}
   coolDown: 0.5
 --- !u!114 &2139075699
 MonoBehaviour:
@@ -185,7 +186,7 @@ MonoBehaviour:
   noCombatShooters:
   - {fileID: 3924149889525990122}
   combatShooters:
-  - {fileID: 0}
+  - {fileID: 5780853821379932765}
   lifes:
   - {fileID: 772752803528005403}
 --- !u!114 &772752803528005396
@@ -257,10 +258,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHPValue:
-    value: 70
+    value: 7000
     minValue: -3.4028235e+38
     maxValue: 3.4028235e+38
-  HP: 70
+  HP: 7000
   Immortal: 0
   _status: 1
 --- !u!114 &772752803528005399
@@ -311,6 +312,7 @@ MonoBehaviour:
   damage: 1
   _status: 1
   destroyAfterDealDamage: 0
+  triggerActivatorSpawn: {fileID: 0}
   coolDown: 0.5
 --- !u!1 &3073176464401363970
 GameObject:

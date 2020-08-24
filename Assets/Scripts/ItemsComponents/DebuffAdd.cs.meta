@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 5a2c0765ecc4f264da3ab5d19d05573c
+guid: 6c138efe393600d4eb87172f5fef9ca2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - debuffComponent: {fileID: 11500000, guid: 52efe448667bd0543b4ea5fc009da256, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
